@@ -1,12 +1,9 @@
 import discord
 from discord.ext import commands
-import json
+import os
 
-with open("config.json", "r", encoding="utf-8") as f:
-    config = json.load(f)
-
-TOKEN = config["token"]
-WELCOME_CHANNEL_ID = config["welcome_channel_id"]
+TOKEN = os.getenv("TOKEN")
+WELCOME_CHANNEL_ID = int(os.getenv("WELCOME_CHANNEL_ID"))
 
 intents = discord.Intents.default()
 intents.members = True
